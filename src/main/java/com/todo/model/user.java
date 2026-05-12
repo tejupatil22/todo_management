@@ -8,13 +8,13 @@ public class user {
     private String password;
 
     // Default Constructor
-    public User() 
+    public user() 
     {
 
     }
 
     // Parameterized Constructor
-    public User(int userId, String name,
+    public user(int userId, String name,
                 String email, String password) 
     {
 
