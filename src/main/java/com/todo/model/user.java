@@ -1,6 +1,6 @@
 package com.todo.model;
 
-public class User {
+public class user {
 
     private int userId;
     private String name;
