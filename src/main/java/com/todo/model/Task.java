@@ -1,5 +1,7 @@
 package com.todo.model;
 
+import java.sql.Date;
+
 public class Task {
 	private int taskId;
 	private String taskTitle;
