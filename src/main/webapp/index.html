@@ -1,10 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Management System</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        .navbar{
+            background-color: #007bff;
+            padding: 15px;
+            text-align: right;
+        }
+
+        .navbar a{
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .hero{
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .hero h1{
+            font-size: 45px;
+            color: #333;
+        }
+
+        .hero p{
+            font-size: 20px;
+            color: #666;
+        }
+
+        .btn{
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .btn:hover{
+            background-color: #0056b3;
+        }
+
+        footer{
+            text-align: center;
+            margin-top: 150px;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+
+        <h1>Todo List Management System</h1>
+
+        <p>
+            Manage your daily tasks efficiently and stay organized.
+        </p>
+
+        <a href="login.html" class="btn">
+            Get Started
+        </a>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2026 Todo List Management System | Developed using HTML, CSS, Java, Servlet & MySQL
+        </p>
+    </footer>
 
 </body>
 </html>
