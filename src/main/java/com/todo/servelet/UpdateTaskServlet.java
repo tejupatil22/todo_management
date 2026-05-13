@@ -11,23 +11,23 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@webServlet("/UpdateTaskServlet")
+@WebServlet("/UpdateTaskServlet")
 
-public class UpdateTaskServlet extends HTPServlet
+public class UpdateTaskServlet extends HttpServlet
 {
-	protected void doPost(HTTPServletRequest request, HTTPServletResponse response) throws ServletException, IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		int taskId = Integer.parseInt(request.getParameter("taskId"));
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
-		String deadline = request.getParamter("deadline");
+		String deadline = request.getParameter("deadline");
 		String priority = request.getParameter("priority");
 		String status = request.getParameter("status");
 		
 		Task task = new Task();
 		
 		task.setTaskId(taskId);
-		task.setTaskTitle(taskTitle);
+		task.setTaskTitle(title);
 		task.setDescription(description);
 		task.setDeadline(deadline);
 		task.setPriority(priority);
@@ -35,7 +35,7 @@ public class UpdateTaskServlet extends HTPServlet
 		
 		TaskDAO dao = new TaskDAO();
 		boolean result=dao.updateTask(task);
-		if(Result)
+		if(result)
 		{
 			response.sendRedirect("dashboard.jsp");
 		}
