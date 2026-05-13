@@ -8,7 +8,7 @@ import com.todo.model.user;
 
 public class UserDAO{
 //	Register DAo--
-	public boolean registerUser(user user) {
+	public boolean registerUser(user u) {
 		 boolean status = false;
 		 
 		 try {
@@ -20,9 +20,11 @@ public class UserDAO{
 			 
 			 PreparedStatement ps = con.prepareStatement(query);
 			 
-			ps.setString(1, user.getName());
-			ps.setString(2, user.getEmail());
-			ps.setString(3, user.getPassword());
+			// ps.setInt(1,u.getUserId());
+			 
+			ps.setString(1, u.getName());
+			ps.setString(2, u.getEmail());
+			ps.setString(3, u.getPassword());
 			
 			
 			int row = ps.executeUpdate();
@@ -63,7 +65,7 @@ public class UserDAO{
 			 user = new user();
 			 
 			 user.setUserId(rs.getInt("user_id"));
-			user.setName(rs.getString("user_name"));
+			user.setName(rs.getString("name"));
 			user.setEmail(rs.getString("email"));
 			user.setPassword(rs.getString("password"));
 		 }

@@ -1,101 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+<meta charset="UTF-8">
+<title>Login | TaskFlow Pro</title>
 
-    <style>
+<style>
 
-        body{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
 
-        .container{
-            width: 350px;
-            background-color: white;
-            margin: 100px auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-        }
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-        h2{
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
 
-        input{
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 15px;
-        }
+    background-size:cover;
+    background-position:center;
+}
 
-        button{
-            width: 100%;
-            padding: 10px;
-            background-color: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+/* Login Box */
+.container{
+    width:360px;
+    padding:35px;
+    border-radius:18px;
 
-        button:hover{
-            background-color: darkblue;
-        }
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
 
-        p{
-            text-align: center;
-            margin-top: 15px;
-        }
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    color:white;
+    text-align:center;
+}
 
-        a{
-            text-decoration: none;
-            color: blue;
-        }
+/* Title */
+h2{
+    margin-bottom:25px;
+    font-size:28px;
+}
 
-    </style>
+/* Inputs */
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+}
+
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+
+    background:#00f2fe;
+    color:black;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4facfe;
+    transform:scale(1.05);
+}
+
+/* Links */
+p{
+    margin-top:15px;
+    font-size:14px;
+}
+
+a{
+    color:#00f2fe;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    color:yellow;
+    text-decoration:underline;
+}
+
+</style>
 
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h2>User Login</h2>
+    <h2>Login to TaskFlow</h2>
 
-        <form action="LoginServlet" method="post">
+    <form action="login" method="post">
 
-            <input type="email"
-                   name="email"
-                   placeholder="Enter Email"
-                   required>
+        <input type="email"
+               name="email"
+               placeholder="Enter Email"
+               required>
 
-            <input type="password"
-                   name="password"
-                   placeholder="Enter Password"
-                   required>
+        <input type="password"
+               name="password"
+               placeholder="Enter Password"
+               required>
 
-            <button type="submit">Login</button>
+        <button type="submit">Login</button>
 
-        </form>
+    </form>
 
-        <p>
-            Don't have an account?
-            <a href="register.html">Register Here</a>
-        </p>
+    <p>
+        Don't have an account?
+        <a href="register.html">Register Here</a>
+    </p>
 
-    </div>
+</div>
 
 </body>
 </html>

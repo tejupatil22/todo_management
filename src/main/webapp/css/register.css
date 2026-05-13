@@ -1,0 +1,84 @@
+
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+
+    background-size:cover;
+    background-position:center;
+}
+
+/* Glass Container */
+.container{
+    width:380px;
+    padding:30px;
+    border-radius:12px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    color:white;
+}
+
+/* Title */
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* Inputs */
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    background:#00f2fe;
+    color:black;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    margin:10px;
+  
+}
+
+button:hover{
+    background:#4facfe;
+    transform:scale(1.05);
+}
+
+/* Link */
+p{
+    text-align:center;
+    margin-top:15px;
+}
+
+a{
+    color:#00f2fe;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    color:yellow;
+}

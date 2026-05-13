@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* Background Image */
+body{
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1506784365847-bbad939e9335");
+
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 50px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+.logo{
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+    font-style:italic;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#00f2fe;
+}
+
+/* Hero */
+.hero{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* Glass Card */
+.card{
+    background: rgba(255,255,255,0.12);
+    padding:50px;
+    border-radius:20px;
+    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    backdrop-filter: blur(12px);
+    color:white;
+    width:450px;
+}
+
+.card h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.card p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+/* Button */
+.btn{
+    display:inline-block;
+    padding:12px 30px;
+    background:#00f2fe;
+    color:black;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#4facfe;
+    transform:scale(1.05);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:15px;
+    color:white;
+    background: rgba(0,0,0,0.3);
+}
+
+
