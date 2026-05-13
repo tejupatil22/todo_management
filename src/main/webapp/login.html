@@ -108,14 +108,16 @@ a:hover{
 
     <h2>Login to TaskFlow</h2>
 
-    <form action="login" method="post">
+    <form action="login" method="post" onsubmit="return validateLogin()">
 
         <input type="email"
+               id="loginEmail"
                name="email"
                placeholder="Enter Email"
                required>
 
         <input type="password"
+               id="loginPassword"
                name="password"
                placeholder="Enter Password"
                required>
