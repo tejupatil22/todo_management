@@ -179,6 +179,106 @@ public class TaskDAO{
 
 	    return list;
 	}
+	public int getTotalTasks() {
+
+	    int count = 0;
+
+	    try {
+
+	        Connection con = DBconnection.getConnection();
+
+	        String query = "SELECT COUNT(*) FROM task";
+
+	        PreparedStatement ps = con.prepareStatement(query);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        if(rs.next()) {
+	            count = rs.getInt(1);
+	        }
+
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return count;
+	}
+	
+	public int getCompletedTasks() {
+
+	    int count = 0;
+
+	    try {
+
+	        Connection con = DBconnection.getConnection();
+
+	        String query =
+	        "SELECT COUNT(*) FROM task WHERE status='Completed'";
+
+	        PreparedStatement ps = con.prepareStatement(query);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        if(rs.next()) {
+	            count = rs.getInt(1);
+	        }
+
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return count;
+	}
+	public int getPendingTasks() {
+
+	    int count = 0;
+
+	    try {
+
+	        Connection con = DBconnection.getConnection();
+
+	        String query =
+	        "SELECT COUNT(*) FROM task WHERE status='Pending'";
+
+	        PreparedStatement ps = con.prepareStatement(query);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        if(rs.next()) {
+	            count = rs.getInt(1);
+	        }
+
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return count;
+	}
+	public int getHighPriorityTasks() {
+
+	    int count = 0;
+
+	    try {
+
+	        Connection con = DBconnection.getConnection();
+
+	        String query =
+	        "SELECT COUNT(*) FROM task WHERE priority='High'";
+
+	        PreparedStatement ps = con.prepareStatement(query);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        if(rs.next()) {
+	            count = rs.getInt(1);
+	        }
+
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return count;
+	}
 	
 }
 
