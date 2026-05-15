@@ -8,36 +8,36 @@ import java.util.ArrayList;
 public class TaskDAO{
 	
 	public boolean addTask(Task t) {
-		
-	boolean status = false;
-	
-	try{
-		
-		Connection con = DBconnection.getConnection();
-		
-		String query ="Select INTO task(task_title,description,deadline, priority ,status,) VALUES(?,?,?,?,?)";
-		
-		PreparedStatement ps = con.prepareStatement(query);
-		
-		ps.setString(1, t.getTaskTitle());
-		ps.setString(2, t.getDescription());
-		ps.setString(3, t.getDeadline());
-		ps.setString(4, t.getPriority());
-		ps.setString(5, t.getStatus());
-		
-		int row = ps.executeUpdate();
-		
-		if(row>0) {
-			status = true;
-		}
-		
-	}catch(Exception e) {
-		e.printStackTrace();
-		
-	}
-	
-	return status;
-		
+
+	    boolean status = false;
+
+	    try {
+
+	        Connection con = DBconnection.getConnection();
+
+	        String query =
+	        "INSERT INTO task(task_title, description, deadline, priority, status) VALUES(?,?,?,?,?)";
+
+	        PreparedStatement ps =
+	                con.prepareStatement(query);
+
+	        ps.setString(1, t.getTaskTitle());
+	        ps.setString(2, t.getDescription());
+	        ps.setString(3, t.getDeadline());
+	        ps.setString(4, t.getPriority());
+	        ps.setString(5, t.getStatus());
+
+	        int row = ps.executeUpdate();
+
+	        if(row > 0) {
+	            status = true;
+	        }
+
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return status;
 	}
 	
 	
@@ -55,7 +55,7 @@ public class TaskDAO{
 			
 			ResultSet rs = ps.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				
 				Task t = new Task();
 				
@@ -75,34 +75,37 @@ public class TaskDAO{
 	}
 	
 	public boolean updateTask(Task t) {
-		
-		boolean status = false;
-		
-		try {
-			Connection con = DBconnection.getConnection();
-			
-			String query = "Update task set task_title=? , description=? , deadline=? , priority=? , status=? where task_id=?";
-			
-			PreparedStatement ps = con.prepareStatement(query);
-			
-			ps.setString(1, t.getTaskTitle());
-			ps.setString(2, t.getDescription());
-			ps.setString(3, t.getDeadline());
-			ps.setString(4, t.getPriority());
-			ps.setString(5, t.getStatus());
-			ps.setInt(5, t.getTaskId());
-			
-			int row = ps.executeUpdate();
-			
-			if(row>0) {
-				status = true;
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return status;
-		
+
+	    boolean status = false;
+
+	    try {
+
+	        Connection con = DBconnection.getConnection();
+
+	        String query =
+	        "UPDATE task SET task_title=?, description=?, deadline=?, priority=?, status=? WHERE task_id=?";
+
+	        PreparedStatement ps =
+	                con.prepareStatement(query);
+
+	        ps.setString(1, t.getTaskTitle());
+	        ps.setString(2, t.getDescription());
+	        ps.setString(3, t.getDeadline());
+	        ps.setString(4, t.getPriority());
+	        ps.setString(5, t.getStatus());
+	        ps.setInt(6, t.getTaskId());
+
+	        int row = ps.executeUpdate();
+
+	        if(row > 0) {
+	            status = true;
+	        }
+
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return status;
 	}
 	
 	public boolean deleteTask(int id) {

@@ -14,7 +14,7 @@
     font-family:Arial, sans-serif;
 }
 
-/* ================= BACKGROUND (MATCH INDEX) ================= */
+/* ================= BODY ================= */
 body{
     height:100vh;
 
@@ -61,76 +61,80 @@ body{
     flex:1;
     width:90%;
     margin:auto;
-    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* ================= GLASS CARD ================= */
+/* ================= CARD ================= */
 .card{
-	margin-top:50px;
+    width:80%;
+    padding:40px;
+
     background: rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
-    padding:25px;
+
     border-radius:20px;
+
     box-shadow:0 8px 32px rgba(0,0,0,0.4);
 }
 
-/* ================= INPUTS ================= */
+/* ================= HEADING ================= */
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    font-size:32px;
+}
+
+/* ================= FORM ================= */
+.form-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+
+/* ================= INPUT ================= */
 input,select{
-    padding:10px;
-    margin:5px;
+    padding:12px;
+    width:220px;
+
     border:none;
     border-radius:8px;
+
     outline:none;
 }
 
-/* ================= BUTTONS ================= */
+/* ================= BUTTON ================= */
 .btn{
-    padding:10px 15px;
+    padding:12px 18px;
+
     border:none;
     border-radius:8px;
+
     cursor:pointer;
+
     font-weight:bold;
-    margin:5px;
     text-decoration:none;
+
     display:inline-block;
+
     transition:0.3s;
 }
 
-/* COLORS */
-.add{ background:#00f2fe; color:black; }
-.update{ background:blue; color:white; }
-.delete{ background:red; color:white; }
-.view{ background:orange; color:white; }
-
-/* HOVER */
 .btn:hover{
     transform:scale(1.05);
 }
 
-/* ================= VIEW BUTTON BAR ================= */
-.top-bar{
-    display:flex;
-    justify-content:flex-end;
-    margin-bottom:15px;
+/* ================= COLORS ================= */
+.add{
+    background:#00f2fe;
+    color:black;
 }
 
-/* ================= TABLE ================= */
-table{
-    width:100%;
-    border-collapse:collapse;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    margin-top:20px;
-}
-
-th,td{
-    padding:12px;
-    text-align:center;
-    border-bottom:1px solid rgba(255,255,255,0.3);
-}
-
-th{
-    background: rgba(0,0,0,0.4);
+.view{
+    background:orange;
+    color:white;
 }
 
 /* ================= FOOTER ================= */
@@ -169,56 +173,51 @@ footer{
     <!-- ADD TASK FORM -->
     <form action="addTask" method="post">
 
-        <input type="text" name="title" placeholder="Task Title">
-        <input type="text" name="description" placeholder="Description">
-        <input type="date" name="deadline">
+        <div class="form-row">
 
-        <select name="priority">
-            <option>High</option>
-            <option>Medium</option>
-            <option>Low</option>
-        </select>
+            <input type="text"
+                   name="title"
+                   placeholder="Task Title"
+                   required>
 
-        <select name="status">
-            <option>Pending</option>
-            <option>In Progress</option>
-            <option>Completed</option>
-        </select>
+            <input type="text"
+                   name="description"
+                   placeholder="Description"
+                   required>
 
-        <button class="btn add" type="submit">Add Task</button>
+            <input type="date"
+                   name="deadline"
+                   required>
+
+            <select name="priority">
+
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+
+            </select>
+
+            <select name="status">
+
+                <option>Pending</option>
+                <option>In Progress</option>
+                <option>Completed</option>
+
+            </select>
+
+            <!-- ADD BUTTON -->
+            <button class="btn add" type="submit">
+                Add Task
+            </button>
+
+            <!-- VIEW BUTTON -->
+            <a href="viewTask" class="btn view">
+                View Tasks
+            </a>
+
+        </div>
 
     </form>
-
-    <!-- VIEW BUTTON FIXED TOP RIGHT -->
-    <div class="top-bar">
-        <a href="viewTask" class="btn view">View Tasks</a>
-    </div>
-
-    <!-- TABLE -->
-    <table>
-
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Deadline</th>
-            <th>Priority</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-
-        <tr>
-            <td>Java Project</td>
-            <td>Servlet CRUD</td>
-            <td>2026-01-15</td>
-            <td>High</td>
-            <td>Pending</td>
-            <td>
-                <a href="updateTask?taskId=1" class="btn update">Update</a>
-                <a href="deleteTask?taskId=1" class="btn delete">Delete</a>
-            </td>
-        </tr>
-
-    </table>
 
 </div>
 
