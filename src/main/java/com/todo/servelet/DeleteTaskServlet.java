@@ -27,7 +27,7 @@ public class DeleteTaskServlet extends HttpServlet {
 
         if(result) {
 
-            response.sendRedirect("dashboard.html");
+            response.sendRedirect("viewTask");
 
         } else {
 
