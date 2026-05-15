@@ -134,6 +134,52 @@ public class TaskDAO{
         return status;
     }
 	
+	
+	public List<Task> searchTask(String keyword){
+
+	    List<Task> list = new ArrayList<>();
+
+	    try{
+
+	        Connection con = DBconnection.getConnection();
+
+	        String query =
+	        "SELECT * FROM task WHERE task_title LIKE ? OR task_id = ?";
+
+	        PreparedStatement ps = con.prepareStatement(query);
+
+	        ps.setString(1, "%" + keyword + "%");
+
+	        // check if numeric or not
+	        try {
+	            ps.setInt(2, Integer.parseInt(keyword));
+	        } catch(Exception e) {
+	            ps.setInt(2, -1); // invalid id fallback
+	        }
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while(rs.next()){
+
+	            Task t = new Task();
+
+	            t.setTaskId(rs.getInt("task_id"));
+	            t.setTaskTitle(rs.getString("task_title"));
+	            t.setDescription(rs.getString("description"));
+	            t.setDeadline(rs.getString("deadline"));
+	            t.setPriority(rs.getString("priority"));
+	            t.setStatus(rs.getString("status"));
+
+	            list.add(t);
+	        }
+
+	    }catch(Exception e){
+	        e.printStackTrace();
+	    }
+
+	    return list;
+	}
+	
 }
 
 

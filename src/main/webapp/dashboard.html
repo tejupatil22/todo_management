@@ -6,26 +6,26 @@
 
 <style>
 
-/* ================= BASE ================= */
+/* ================= RESET ================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Segoe UI, Arial, sans-serif;
 }
 
 /* ================= BODY ================= */
 body{
-    height:100vh;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 
     background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
     url("https://images.unsplash.com/photo-1506784365847-bbad939e9335");
 
     background-size:cover;
     background-position:center;
-    display:flex;
-    flex-direction:column;
     color:white;
 }
 
@@ -39,7 +39,8 @@ body{
 }
 
 .logo{
-    font-size:28px;
+    color:white;
+    font-size:30px;
     font-weight:bold;
     font-style:italic;
 }
@@ -47,7 +48,7 @@ body{
 .navbar a{
     color:white;
     text-decoration:none;
-    margin-left:20px;
+    margin-left:25px;
     font-size:18px;
     transition:0.3s;
 }
@@ -56,69 +57,82 @@ body{
     color:#00f2fe;
 }
 
-/* ================= CONTAINER ================= */
-.container{
+/* ================= MAIN CENTER ================= */
+.wrapper{
     flex:1;
-    width:90%;
-    margin:auto;
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:30px;
 }
 
 /* ================= CARD ================= */
 .card{
-    width:80%;
-    padding:40px;
+    width:90%;
+    max-width:950px;
 
     background: rgba(255,255,255,0.12);
     backdrop-filter: blur(12px);
 
-    border-radius:20px;
-
-    box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
-/* ================= HEADING ================= */
+/* ================= TITLE ================= */
 h2{
     text-align:center;
-    margin-bottom:25px;
-    font-size:32px;
+    margin-bottom:20px;
 }
 
-/* ================= FORM ================= */
+/* ================= TOP BAR ================= */
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* SEARCH */
+.search-form{
+    display:flex;
+    gap:10px;
+}
+
+.search-form input{
+    padding:10px;
+    width:220px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+/* ================= INPUT ROW ================= */
 .form-row{
     display:flex;
     flex-wrap:wrap;
-    gap:15px;
+    gap:12px;
     justify-content:center;
 }
 
-/* ================= INPUT ================= */
+/* INPUT */
 input,select{
-    padding:12px;
-    width:220px;
-
+    padding:10px;
+    width:180px;
     border:none;
     border-radius:8px;
-
     outline:none;
 }
 
 /* ================= BUTTON ================= */
 .btn{
-    padding:12px 18px;
-
+    padding:10px 16px;
     border:none;
     border-radius:8px;
-
     cursor:pointer;
-
     font-weight:bold;
-    text-decoration:none;
-
-    display:inline-block;
-
     transition:0.3s;
 }
 
@@ -126,22 +140,39 @@ input,select{
     transform:scale(1.05);
 }
 
-/* ================= COLORS ================= */
+/* COLORS */
 .add{
     background:#00f2fe;
     color:black;
 }
 
 .view{
-    background:orange;
+    background:#ff9800;
     color:white;
 }
 
-/* ================= FOOTER ================= */
+.search{
+    background:#ffd000;
+    color:black;
+}
+
+/* ================= FOOTER FIXED BOTTOM ================= */
 footer{
     text-align:center;
-    padding:15px;
-    background: rgba(0,0,0,0.3);
+    padding:12px;
+    background: rgba(0,0,0,0.5);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:700px){
+    .top-bar{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .search-form input{
+        width:180px;
+    }
 }
 
 </style>
@@ -152,7 +183,6 @@ footer{
 
 <!-- NAVBAR -->
 <div class="navbar">
-
     <div class="logo">Todo System</div>
 
     <div>
@@ -160,60 +190,58 @@ footer{
         <a href="dashboard.html">Dashboard</a>
         <a href="logout">Logout</a>
     </div>
-
 </div>
 
-<!-- MAIN -->
-<div class="container">
+<!-- CENTER CONTENT -->
+<div class="wrapper">
 
 <div class="card">
 
     <h2>Task Dashboard</h2>
 
-    <!-- ADD TASK FORM -->
+    <!-- TOP ACTION BAR -->
+    <div class="top-bar">
+
+        <!-- SEARCH -->
+        <form action="searchTask" method="get" class="search-form">
+
+            <input type="text" name="keyword" placeholder="Search task...">
+
+            <button class="btn search" type="submit">Search</button>
+
+        </form>
+
+        <!-- VIEW -->
+        <a href="viewTask">
+            <button class="btn view">View Tasks</button>
+        </a>
+
+    </div>
+
+    <!-- ADD TASK -->
     <form action="addTask" method="post">
 
         <div class="form-row">
 
-            <input type="text"
-                   name="title"
-                   placeholder="Task Title"
-                   required>
+            <input type="text" name="title" placeholder="Task Title" required>
 
-            <input type="text"
-                   name="description"
-                   placeholder="Description"
-                   required>
+            <input type="text" name="description" placeholder="Description" required>
 
-            <input type="date"
-                   name="deadline"
-                   required>
+            <input type="date" name="deadline" required>
 
             <select name="priority">
-
                 <option>High</option>
                 <option>Medium</option>
                 <option>Low</option>
-
             </select>
 
             <select name="status">
-
                 <option>Pending</option>
                 <option>In Progress</option>
                 <option>Completed</option>
-
             </select>
 
-            <!-- ADD BUTTON -->
-            <button class="btn add" type="submit">
-                Add Task
-            </button>
-
-            <!-- VIEW BUTTON -->
-            <a href="viewTask" class="btn view">
-                View Tasks
-            </a>
+            <button class="btn add" type="submit">Add Task</button>
 
         </div>
 
@@ -223,9 +251,9 @@ footer{
 
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER (BOTTOM) -->
 <footer>
-    © 2026 Todo Management System | Organize. Track. Complete.
+    © 2026 Todo Management System | Organize • Track • Complete
 </footer>
 
 </body>
