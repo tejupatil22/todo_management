@@ -135,34 +135,39 @@ public class TaskDAO{
     }
 	
 	
-	public List<Task> searchTask(String keyword){
+	public List<Task> searchTask(String keyword) {
 
 	    List<Task> list = new ArrayList<>();
 
-	    try{
-
+	    try {
 	        Connection con = DBconnection.getConnection();
 
-	        String query =
-	        "SELECT * FROM task WHERE task_title LIKE ? OR task_id = ?";
+	        String sql;
 
-	        PreparedStatement ps = con.prepareStatement(query);
+	        PreparedStatement ps;
 
-	        ps.setString(1, "%" + keyword + "%");
+	        // If user enters number → search by ID
+	        if (keyword.matches("\\d+")) {
 
-	        // check if numeric or not
-	        try {
-	            ps.setInt(2, Integer.parseInt(keyword));
-	        } catch(Exception e) {
-	            ps.setInt(2, -1); // invalid id fallback
+	            sql = "SELECT * FROM task WHERE task_id = ? OR task_title LIKE ?";
+	            ps = con.prepareStatement(sql);
+
+	            ps.setInt(1, Integer.parseInt(keyword));
+	            ps.setString(2, "%" + keyword + "%");
+
+	        } else {
+
+	            sql = "SELECT * FROM tasks WHERE task_title LIKE ?";
+	            ps = con.prepareStatement(sql);
+
+	            ps.setString(1, "%" + keyword + "%");
 	        }
 
 	        ResultSet rs = ps.executeQuery();
 
-	        while(rs.next()){
+	        while (rs.next()) {
 
 	            Task t = new Task();
-
 	            t.setTaskId(rs.getInt("task_id"));
 	            t.setTaskTitle(rs.getString("task_title"));
 	            t.setDescription(rs.getString("description"));
@@ -173,7 +178,7 @@ public class TaskDAO{
 	            list.add(t);
 	        }
 
-	    }catch(Exception e){
+	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
 

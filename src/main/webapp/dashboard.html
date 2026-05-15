@@ -7,7 +7,7 @@
 
 <style>
 
-/* ================= RESET ================= */
+/* RESET */
 *{
     margin:0;
     padding:0;
@@ -15,7 +15,7 @@
     font-family:Segoe UI, Arial, sans-serif;
 }
 
-/* ================= BODY ================= */
+/* BODY */
 body{
     min-height:100vh;
     display:flex;
@@ -30,7 +30,7 @@ body{
     color:white;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 .navbar{
     display:flex;
     justify-content:space-between;
@@ -58,7 +58,7 @@ body{
     color:#00f2fe;
 }
 
-/* ================= CENTER ================= */
+/* WRAPPER */
 .wrapper{
     flex:1;
     display:flex;
@@ -67,82 +67,42 @@ body{
     padding:30px;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 .card{
     width:95%;
     max-width:1100px;
-
     background:rgba(255,255,255,0.12);
     backdrop-filter:blur(14px);
-
     padding:40px;
     border-radius:22px;
-
     box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
-/* ================= TITLE ================= */
+/* TITLE */
 h2{
     text-align:center;
     font-size:40px;
     margin-bottom:35px;
 }
 
-/* ================= TOP BAR ================= */
+/* TOP BAR FIX */
 .top-bar{
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
     margin-bottom:35px;
 }
 
-/* ================= SEARCH ================= */
-.search-form{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.search-form input{
-    width:380px;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    outline:none;
-    font-size:16px;
-}
-
-/* ================= RIGHT BUTTONS ================= */
+/* BUTTON CONTAINER */
 .action-buttons{
     display:flex;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-/* ================= FORM ================= */
-.form-row{
-    display:flex;
-    flex-wrap:wrap;
     justify-content:center;
     align-items:center;
-    gap:16px;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
-/* INPUTS */
-.form-row input,
-.form-row select{
-    width:210px;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    outline:none;
-    font-size:15px;
-}
-
-/* ================= BUTTONS ================= */
+/* BUTTON STYLE */
 .btn{
     padding:13px 22px;
     border:none;
@@ -151,79 +111,43 @@ h2{
     font-size:16px;
     font-weight:bold;
     transition:0.3s;
+    text-decoration:none;
+    display:inline-block;
 }
 
 .btn:hover{
     transform:translateY(-2px);
 }
 
-/* ================= COLORS ================= */
-.add{
-    background:#00f2fe;
-    color:black;
+/* COLORS */
+.view{background:#ff9800;color:white;}
+.stats{background:#7c4dff;color:white;}
+.filter{background:#00c853;color:white;}
+.add{background:#00f2fe;color:black;}
+
+/* FORM */
+.form-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    justify-content:center;
 }
 
-.search{
-
-    background:#ffd000;
-    color:black;
+.form-row input,
+.form-row select{
+    width:210px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    outline:none;
 }
 
-.view{
-
-    background:#ff9800;
-    color:white;
-}
-
-.stats{
-    background:#7c4dff;
-    color:white;
-}
-
-.filter{
-	width:120%;
-    background:#00c853;
-    color:white;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
     text-align:center;
     padding:14px;
     background:rgba(0,0,0,0.4);
     font-size:15px;
-}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:900px){
-
-    .top-bar{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .search-form{
-        width:100%;
-        justify-content:center;
-    }
-
-    .action-buttons{
-        justify-content:center;
-       
-    }
-
-    .form-row{
-        flex-direction:column;
-    }
-
-    .form-row input,
-    .form-row select{
-        width:100%;
-    }
-
-    .search-form input{
-        width:100%;
-    }
 }
 
 </style>
@@ -232,12 +156,10 @@ footer{
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <div class="navbar">
 
-    <div class="logo">
-        Todo System
-    </div>
+    <div class="logo">Todo System</div>
 
     <div>
         <a href="index.html">Home</a>
@@ -247,101 +169,50 @@ footer{
 
 </div>
 
-<!-- ================= MAIN CONTENT ================= -->
+<!-- MAIN -->
 <div class="wrapper">
 
 <div class="card">
 
     <h2>Task Dashboard</h2>
 
-    <!-- ================= TOP BAR ================= -->
+    <!-- BUTTONS (CENTERED CLEAN UI) -->
     <div class="top-bar">
 
-        <!-- SEARCH -->
-        <form action="searchTask" method="get" class="search-form">
-
-            <input type="text"
-                   name="keyword"
-                   placeholder="Search task...">
-
-            <button class="btn search" type="submit">
-                Search Task
-            </button>
-
-        </form>
-
-        <!-- RIGHT SIDE BUTTONS -->
         <div class="action-buttons">
 
-            <!-- VIEW TASK -->
-            <a href="viewTask">
+            <a href="viewTask" class="btn view">View Tasks</a>
 
-                <button class="btn view" type="button">
-                    View Tasks
-                </button>
+            <a href="dashboard" class="btn stats">Dashboard Statistics</a>
 
-            </a>
-
-            <!-- DASHBOARD STATS -->
-            <a href="dashboard">
-
-                <button class="btn stats" type="button">
-                    Dashboard Statastics
-                </button>
-
-            </a>
-
-            <!-- FILTER TASK -->
-            <a href="filter.html">
-
-                <button class="btn filter" type="button">
-                    Filter Tasks
-                </button>
-
-            </a>
+            <a href="filter.html" class="btn filter">Filter Tasks</a>
 
         </div>
 
     </div>
 
-    <!-- ================= ADD TASK FORM ================= -->
+    <!-- ADD TASK -->
     <form action="addTask" method="post">
 
         <div class="form-row">
 
-            <input type="text"
-                   name="title"
-                   placeholder="Task Title"
-                   required>
-
-            <input type="text"
-                   name="description"
-                   placeholder="Description"
-                   required>
-
-            <input type="date"
-                   name="deadline"
-                   required>
+            <input type="text" name="title" placeholder="Task Title" required>
+            <input type="text" name="description" placeholder="Description" required>
+            <input type="date" name="deadline" required>
 
             <select name="priority">
-
                 <option>High</option>
                 <option>Medium</option>
                 <option>Low</option>
-
             </select>
 
             <select name="status">
-
                 <option>Pending</option>
                 <option>In Progress</option>
                 <option>Completed</option>
-
             </select>
 
-            <button class="btn add" type="submit">
-                Add Task
-            </button>
+            <button class="btn add" type="submit">Add Task</button>
 
         </div>
 
@@ -351,9 +222,8 @@ footer{
 
 </div>
 
-<!-- ================= FOOTER ================= -->
 <footer>
-    © 2026 Todo Management System | Organize • Track • Complete
+© 2026 Todo Management System | Organize • Track • Complete
 </footer>
 
 </body>
