@@ -55,7 +55,7 @@ public class ViewServlet extends HttpServlet {
 
         // SEARCH BAR
         out.println("<form method='get' action='viewTask' style='text-align:center;margin-bottom:15px;'>");
-        out.println("<input type='text' name='keyword' placeholder='Search by ID or Name' style='padding:10px;width:250px;border-radius:8px;border:none;'>");
+        out.println("<input type='text' name='keyword' placeholder='Search by Task Name' style='padding:10px;width:250px;border-radius:8px;border:none;'>");
         out.println("<button type='submit' class='btn back' style='margin-left:10px;'>Search</button>");
         out.println("</form>");
 

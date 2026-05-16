@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Filter Tasks | Todo System</title>
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, Arial, sans-serif;
+}
+
+/* BODY */
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("https://images.unsplash.com/photo-1506784365847-bbad939e9335");
+
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 50px;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    font-style:italic;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#00f2fe;
+}
+
+/* WRAPPER */
+.wrapper{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* CARD */
+.card{
+    width:95%;
+    max-width:700px;
+
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+
+    padding:50px;
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* TITLE */
+h2{
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+/* BUTTON GROUP */
+.button-group{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* BUTTONS */
+.btn{
+    padding:16px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* COLORS */
+.pending{
+    background:#ff9800;
+}
+
+.completed{
+    background:#00c853;
+}
+
+.progress{
+    background:#7c4dff;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    background:rgba(0,0,0,0.4);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+    <div class="logo">
+        Todo System
+    </div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="dashboard">Dashboard</a>
+        <a href="logout">Logout</a>
+    </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="wrapper">
+
+    <div class="card">
+
+        <h2>Filter Tasks</h2>
+
+        <div class="button-group">
+
+            <a href="filter?status=Pending"
+               class="btn pending">
+               Pending Tasks
+            </a>
+
+            <a href="filter?status=Completed"
+               class="btn completed">
+               Completed Tasks
+            </a>
+
+            <a href="filter?status=In Progress"
+               class="btn progress">
+               In Progress Tasks
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Todo Management System
+</footer>
+
+</body>
+</html>

@@ -142,32 +142,18 @@ public class TaskDAO{
 	    try {
 	        Connection con = DBconnection.getConnection();
 
-	        String sql;
+	        String sql = "SELECT * FROM task WHERE task_title LIKE ?";
 
-	        PreparedStatement ps;
+	        PreparedStatement ps = con.prepareStatement(sql);
 
-	        // If user enters number → search by ID
-	        if (keyword.matches("\\d+")) {
-
-	            sql = "SELECT * FROM task WHERE task_id = ? OR task_title LIKE ?";
-	            ps = con.prepareStatement(sql);
-
-	            ps.setInt(1, Integer.parseInt(keyword));
-	            ps.setString(2, "%" + keyword + "%");
-
-	        } else {
-
-	            sql = "SELECT * FROM tasks WHERE task_title LIKE ?";
-	            ps = con.prepareStatement(sql);
-
-	            ps.setString(1, "%" + keyword + "%");
-	        }
+	        ps.setString(1, "%" + keyword + "%");
 
 	        ResultSet rs = ps.executeQuery();
 
 	        while (rs.next()) {
 
 	            Task t = new Task();
+
 	            t.setTaskId(rs.getInt("task_id"));
 	            t.setTaskTitle(rs.getString("task_title"));
 	            t.setDescription(rs.getString("description"));
